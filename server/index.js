@@ -24,10 +24,11 @@ app.get('/auth/user', authCtrl.getUserSession)
 app.delete('/auth/logout', authCtrl.logout)
 
 //user things
-app.post('api/user/timed_events', userCtrl.createEvent)
-app.put('api/user/timed_events/:timed_events_id', userCtrl.editEvent)
-app.get('api/user/timed_events', userCtrl.showEvents)
-app.delete('api/user/timed_events/:timed_events_id', userCtrl.deleteEvents)
+app.get('/api/user/timed_events', userCtrl.getAllEvents)
+app.get('/api/user/timed_events/:timed_events_id', userCtrl.getEventById)
+app.post('/api/user/timed_events', userCtrl.addEvent)
+app.put('/api/user/timed_events/:timed_events_id', userCtrl.editEvent)
+app.delete('/api/user/timed_events/:timed_events_id', userCtrl.deleteEvent)
 // app.put(this is for stripe)
 
 

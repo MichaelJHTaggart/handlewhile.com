@@ -11,7 +11,7 @@ CREATE TABLE users (
 CREATE TABLE timed_events (
   id SERIAL PRIMARY KEY,
   time INT,
-  name VARCHAR NOT NULL UNIQUE,
+  name VARCHAR NOT NULL,
   user_id INT
 );
 
