@@ -1,9 +1,11 @@
+DROP TABLE users, timed_events, tier;
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  username VARCHAR NOT NULL UNIQUE,
-  email VARCHAR NOT NULL UNIQUE,
-  password VARCHAR NOT NULL,
-  tier_id INT NOT NULL
+  username VARCHAR (200) NOT NULL UNIQUE,
+  email VARCHAR (150) NOT NULL UNIQUE,
+  hash text NOT NULL,
+  tier_id INT NOT NULL DEFAULT 1
 );
 
 CREATE TABLE timed_events (
@@ -29,9 +31,9 @@ VALUES
 ('free', 5), ('level 1', 10), ('level 2', 20), ('level 3', 30);
 
 INSERT INTO users
-(username, email, password, tier_id)
+(username, email, hash)
 VALUES
-('pika','pika@pika.com', 'pika', 1), ('charzard', 'char@char.com', 'char', 1);
+('pika','pika@pika.com', 'pika'), ('charzard', 'char@char.com', 'char');
 
 INSERT INTO timed_events
 (time, name, user_id)
