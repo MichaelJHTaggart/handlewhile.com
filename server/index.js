@@ -9,10 +9,19 @@ const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 const app = express()
 
 app.use(express.json())
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: SESSION_SECRET,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 }
+})
+)
 
 //authentication
-app.post('api/auth/register', authCtrl.register)
-app.post('api/auth/login', authCtrl.login)
+app.post('/auth/register', authCtrl.register)
+app.post('/auth/login', authCtrl.login)
+app.get('/auth/user', authCtrl.getUserSession)
+app.delete('/auth/logout', authCtrl.logout)
 
 //user things
 app.post('api/user/timed_events', userCtrl.createEvent)
@@ -28,14 +37,5 @@ massive({
 }).then(db => {
     app.set('db', db);
     console.log('db connected')
+    app.listen(SERVER_PORT, () => console.log(`Rocking out on port ${SERVER_PORT}`))
 });
-
-app.use(
-    session({
-        resave: true,
-        saveUninitialized: false,
-        secret: SESSION_SECRET
-    })
-);
-
-app.listen(SERVER_PORT, () => console.log(`Rocking out on port ${SERVER_PORT}`))
