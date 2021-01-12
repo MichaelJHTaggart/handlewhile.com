@@ -1,0 +1,1 @@
+INSERT INTO timed_events (time, name, user_id) VALUES ($2, $3, $1)

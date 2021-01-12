@@ -1,0 +1,1 @@
+SELECT COUNT(*) FROM timed_events WHERE user_id = $1

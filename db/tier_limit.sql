@@ -1,0 +1,1 @@
+SELECT num_events FROM tier WHERE id = $1
