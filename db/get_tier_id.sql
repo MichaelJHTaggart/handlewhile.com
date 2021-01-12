@@ -1,0 +1,1 @@
+SELECT tier_id FROM users WHERE id = $1
