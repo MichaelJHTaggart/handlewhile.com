@@ -1,0 +1,43 @@
+$font-stack: 'Nunito', sans-serif;
+$light-color: #f4f4f4;
+$primary-color: 
+$secondary-color: 
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $light-color;
+    font-family: $font-stack;
+    line-height: 1.6;
+}
+
+.showcase {
+    background-color: $primary-color;
+    color: blue;
+    height: 600px;
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    
+        ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        li {
+            padding: 15px
+        }
+
+    }
+
+    
+}
+.container {
+    max
+}

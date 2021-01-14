@@ -6,6 +6,8 @@ function App() {
   return (
     <div>
       {routes}
+      <Header />
+      <Stopwatch />
     </div>
   );
 }
