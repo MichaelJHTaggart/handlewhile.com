@@ -6,6 +6,8 @@ Here import the components that you need routes to.
 
 export default (
     <Switch>
-        <Route></Route>
+        <Route>
+
+        </Route>
     </Switch>
 )
