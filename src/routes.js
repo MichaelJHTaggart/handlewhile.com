@@ -1,11 +1,10 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import App from './App'
-import Header from './components/Header'
 import Stopwatch from './components/Stopwatch'
 import SignIn from './components/SignIn'
 import CreateAccount from './components/CreateAccount'
 import Projects from './components/Projects'
+import Pricing from './components/Pricing'
 
 
 /*
@@ -18,5 +17,6 @@ export default (
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/createaccount" component={CreateAccount} />
         <Route exact path="/projects" component={Projects} />
+        <Route exact path="/pricing" component={Pricing} />
     </Switch>
 )

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsList } from "react-icons/bs";
 import { IconContext } from "react-icons";
+import { connect } from 'react-redux'
 import '../scss/Header.scss';
 
 const Header = props => {
@@ -10,7 +11,6 @@ const Header = props => {
     function toggleMenu() {
         setIsMenuOpen(!isMenuOpen)
     }
-
 
     return (
         <IconContext.Provider
@@ -30,16 +30,20 @@ const Header = props => {
 
                     <BsList onClick={toggleMenu} className="Hamburger" />
 
-                    <nav className={`logged-out-mob ${isMenuOpen ? null : 'logged-out-mob-hide'}`}>
-                        <Link to='/signin' className="navigate">Sign In</Link>
-                        <div id="line"></div>
-                        <Link to='/createaccount' className="navigate">Create Account</Link>
-                    </nav>
-                    {/* <nav className={`logged-in-mob ${isMenuOpen ? null : 'logged-in-mob-hide'}`}>
-                        <div className="navigate">Projects</div>
-                        <div id="line"></div>
-                        <div className="navigate">Pricing</div>
-                    </nav> */}
+                    {props.isLoggedIn ? (
+                        <nav className={`logged-out-mob ${isMenuOpen ? null : 'logged-out-mob-hide'}`}>
+                            <div className="Welcome">Welcome, {props.username}</div>
+                            <Link to="/projects" className="navigate">Projects</Link>
+                            <div id="line"></div>
+                            <Link to="/pricing" className="navigate">Pricing</Link>
+                        </nav>
+                    ) : (
+                            <nav className={`logged-out-mob ${isMenuOpen ? null : 'logged-out-mob-hide'}`}>
+                                <Link to='/signin' className="navigate">Sign In</Link>
+                                <div id="line"></div>
+                                <Link to='/createaccount' className="navigate">Create Account</Link>
+                            </nav>
+                        )}
                     <nav className="logged-out">
                         <div className="navigate">Sign In</div>
                         <div id="line"></div>
@@ -53,7 +57,12 @@ const Header = props => {
 
                 </header>
             </div>
-        </IconContext.Provider>
+        </IconContext.Provider >
     )
 }
-export default Header
+
+function mapStateToProps(reduxState) {
+    return reduxState
+}
+
+export default connect(mapStateToProps)(Header)
