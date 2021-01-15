@@ -1,22 +1,24 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-// import axios from 'axios'
+import axios from 'axios'
+import { connect } from 'react-redux'
+import { loginUser } from '../../src/redux/reducer'
 import '../scss/SignIn.scss';
 
 const SignIn = props => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    // function login() {
-    //     const { email } = email
-    //     const { password } = password
-    //     axios.post('/auth/login', { email, password })
-    //         .then(user => {
-    //             props.updateUser(user)
-    //         })
-    //     setEmail('')
-    //     setPassword('')
-    // }
+    function login() {
+        console.log(props)
+        axios.post('/auth/login', { email, password })
+            .then(user => {
+                props.loginUser(user.username, user.email)
+                props.history.push("/")
+            })
+        setEmail('')
+        setPassword('')
+    }
 
     return (
         <div id='body'>
@@ -42,7 +44,7 @@ const SignIn = props => {
             >
             </input>
 
-            <button className="button" //onClick={login}
+            <button className="button" onClick={login}
             >Sign In</button>
 
             <p className="forgot-password">Forgot your password?</p>
@@ -53,4 +55,9 @@ const SignIn = props => {
 
         </div>)
 }
-export default SignIn
+
+function mapStateToProps(reduxState) {
+    return reduxState
+}
+
+export default connect(mapStateToProps, { loginUser })(SignIn)

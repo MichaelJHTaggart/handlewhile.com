@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const Projects = props => {
     return (<div>Projects.js</div>)
