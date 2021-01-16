@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import '../scss/Stopwatch.scss';
 // import axios from 'axios'
+import { connect } from 'react-redux'
+import '../scss/Stopwatch.scss';
+
 
 class Stopwatch extends Component {
     constructor() {
@@ -42,12 +44,12 @@ class Stopwatch extends Component {
     // addTimestamp() {
     //     const { timerTime, name } = this.state
     //     const body = {
-    //         project: name,
-    //         data: timerTime
+    //         name: name,
+    //         timerTime: timerTime
     //     }
 
     //     axios.post('/api/user/timed_events', body).then(() => {
-    //         this.props.getAllTimestamps()
+
     //     })
     // }
     handleName(e) {
@@ -104,4 +106,8 @@ class Stopwatch extends Component {
     }
 }
 
-export default Stopwatch;
+function mapStateToProps(reduxState) {
+    return reduxState
+}
+
+export default connect(mapStateToProps)(Stopwatch)
