@@ -10,7 +10,6 @@ const SignIn = props => {
     const [password, setPassword] = useState('')
 
     function login() {
-        console.log(props)
         axios.post('/auth/login', { email, password })
             .then(user => {
                 props.loginUser(user.username, user.email)
