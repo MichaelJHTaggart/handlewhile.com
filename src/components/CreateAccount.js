@@ -13,7 +13,7 @@ const CreateAccount = props => {
     function createAccount() {
         axios.post('/auth/register', { username, email, password })
             .then(user => {
-                props.loginUser(user.username, user.email)
+                props.loginUser(user.id, user.username, user.email)
                 props.history.push("/")
             })
         setUsername('')
@@ -60,7 +60,7 @@ const CreateAccount = props => {
 
             <div className="line"></div>
 
-            <Link to='/signin' className="link-to-create-account">Already have an account? Sign in now!</Link>
+            <Link to='/sign-in' className="link-to-create-account">Already have an account? Sign in now!</Link>
 
         </div>)
 }

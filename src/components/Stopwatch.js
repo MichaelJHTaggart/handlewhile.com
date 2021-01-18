@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import axios from 'axios'
+import axios from 'axios'
 import { connect } from 'react-redux'
 import '../scss/Stopwatch.scss';
 
@@ -13,7 +13,7 @@ class Stopwatch extends Component {
             timerTime: 0,
             name: ""
         };
-        // this.addTimestamp = this.addTimestamp.bind(this)
+        this.addTimestamp = this.addTimestamp.bind(this)
     }
 
     startTimer = () => {
@@ -40,18 +40,17 @@ class Stopwatch extends Component {
             timerTime: 0
         });
     };
+    addTimestamp() {
+        const body = {
+            name: this.state.name,
+            time: this.state.timerTime
+        }
 
-    // addTimestamp() {
-    //     const { timerTime, name } = this.state
-    //     const body = {
-    //         name: name,
-    //         timerTime: timerTime
-    //     }
-
-    //     axios.post('/api/user/timed_events', body).then(() => {
-
-    //     })
-    // }
+        axios.post('/api/user/timed_events', body)
+            .then((res) => {
+                return res.data
+            })
+    }
     handleName(e) {
         this.setState({
             name: e.target.value
@@ -59,9 +58,8 @@ class Stopwatch extends Component {
     }
 
     render() {
-        console.log(this.state.name)
         const { timerTime } = this.state;
-
+        console.log(this.state.timerTime)
         let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
         let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
         let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
@@ -97,7 +95,6 @@ class Stopwatch extends Component {
                     {this.state.timerOn === false && this.state.timerTime > 0 && (
                         <button className="reset-button" onClick={this.resetTimer}>reset</button>
                     )}
-
                     <button className="save-button" onClick={this.addTimestamp}>save</button>
                 </div>
 

@@ -39,9 +39,9 @@ const Header = props => {
                         </nav>
                     ) : (
                             <nav className={`logged-out-mob ${isMenuOpen ? null : 'logged-out-mob-hide'}`}>
-                                <Link to='/signin' className="navigate">Sign In</Link>
+                                <Link to='/sign-in' className="navigate" >Sign In</Link>
                                 <div id="line"></div>
-                                <Link to='/createaccount' className="navigate">Create Account</Link>
+                                <Link to='/create-account' className="navigate">Create Account</Link>
                             </nav>
                         )}
                     <nav className="logged-out">

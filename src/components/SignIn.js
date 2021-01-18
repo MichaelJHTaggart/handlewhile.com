@@ -12,7 +12,7 @@ const SignIn = props => {
     function login() {
         axios.post('/auth/login', { email, password })
             .then(user => {
-                props.loginUser(user.username, user.email)
+                props.loginUser(user.id, user.username, user.email)
                 props.history.push("/")
             })
         setEmail('')
@@ -50,7 +50,7 @@ const SignIn = props => {
 
             <div className="line"></div>
 
-            <Link to='/createaccount' className="link-to-create-account"> New to Handle While? Create an account now!</Link>
+            <Link to='/create-account' className="link-to-create-account"> New to Handle While? Create an account now!</Link>
 
         </div>)
 }

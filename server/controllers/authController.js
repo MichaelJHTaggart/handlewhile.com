@@ -31,7 +31,7 @@ module.exports = {
     login: async (req, res) => {
         //Grab our database
         const db = req.app.get('db')
-        console.log(req.body)
+
         //Get necessary info off of req.body(username, password)
         const { email, password } = req.body
 
@@ -57,6 +57,7 @@ module.exports = {
 
         //Send back confirmation of login
         res.status(200).send(existingUser)
+
     },
 
     getUserSession: (req, res) => {
