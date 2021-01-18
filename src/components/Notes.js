@@ -1,3 +1,5 @@
+//! This was an attempt to hook the stopwatch component
+
 // import React, { useState } from "react";
 // // import axios from 'axios'
 // import { connect } from 'react-redux'
@@ -76,3 +78,56 @@
 //  return reduxState
 // }
 // export default connect(mapStateToProps)(Stopwatch)
+
+//! The following is the Project List component but in a class component
+// import React, { Component } from 'react'
+// import axios from 'axios'
+
+// class ProjectList extends Component {
+//  constructor() {
+//   super()
+//   this.state = {
+//    projectList: []
+//   }
+//   this.getAllProjects = this.getAllProjects.bind(this)
+//  }
+//  componentDidMount() {
+//   this.getProjectList()
+//  }
+
+//  const mappedProjects = //get request information. .map
+
+//   getAllProjects(e) {
+//  axios.get('/api/user/timed_events',).then(res => {
+//   console.log(res)
+//  })
+
+// }
+
+// render(){
+
+// }
+// return (<div>
+//  Projects.js
+// </div>
+// )
+
+// }
+
+// export default Projects
+
+
+/*
+   Question: My backend requires the following:
+   const { id } = req.session.user
+
+   When I make an axios request on the front end, how do I make sure that the session.user is sent with my request?
+
+   Attempted:
+   Sending the axios request without any parameter, and expecting the session.user to be sent without anything needing to be prepared.
+
+   Saving the session.user.id on Redux => issue is that the Redux is not able to send back the value appropriately.
+
+   Other ideas to test:
+   The session is saved on the cookie (for the user), and on the server side. I am concerned that when I click Sign in OR Create account (on those 2 respective components) that I am closing the session on the server side OR on the user side.
+  */
