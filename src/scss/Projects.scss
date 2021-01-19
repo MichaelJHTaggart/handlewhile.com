@@ -1,0 +1,43 @@
+.orange{
+  width: 288px;
+  height: 200px;
+  background: #E7ECEF;
+  box-shadow: 0px 0px 5px 3px #F96900;
+  border: none;
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+ .text { 
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 50px;
+  /* identical to box height, or 281% */
+  
+  text-align: center;
+  letter-spacing: -0.07em;
+  
+  background: #F96900;
+  box-shadow: 0px 0px 5px 10px #F96900;
+  border-radius: 50%;
+  border: black;
+  color: #E7ECEF;
+  
+ }
+}
+.trash{
+ position: relative;
+ height: 70px;
+ width: 45px;
+ right: 85px;
+ color: #E7ECEF;
+
+ background: #F96900;
+ border-radius: 50%;
+ box-shadow: 0px 0px 5px 10px #F96900;
+}
+

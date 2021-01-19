@@ -5,11 +5,8 @@ import SignIn from './components/SignIn'
 import CreateAccount from './components/CreateAccount'
 import ProjectList from './components/ProjectList'
 import Pricing from './components/Pricing'
+import ForgotPassword from './components/ForgotPassword'
 
-
-/*
-Here import the components that you need routes to.
-*/
 
 export default (
     <Switch>
@@ -18,5 +15,6 @@ export default (
         <Route exact path="/create-account" component={CreateAccount} />
         <Route exact path="/projects" component={ProjectList} />
         <Route exact path="/pricing" component={Pricing} />
+        <Route exact path="/forgot-password" component={ForgotPassword} />
     </Switch>
 )
