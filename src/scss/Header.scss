@@ -49,7 +49,7 @@
     align-items: center;
     overflow: hidden;
     transition: all 600ms;
-    opacity: 93%;
+    opacity: 100%;
     background-color: #E7ECEF;
     
 
@@ -63,6 +63,7 @@
         /* or 200% */
         letter-spacing: 0.015em;
         color: #8B8C89;
+        z-index: 20;
     }
     #line{
         display: flex;
