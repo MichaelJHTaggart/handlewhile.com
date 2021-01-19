@@ -46,7 +46,7 @@ const SignIn = props => {
             <button className="button" onClick={login}
             >Sign In</button>
 
-            <p className="forgot-password">Forgot your password?</p>
+            <Link to="/forgot-password">Forgot your password?</Link>
 
             <div className="line"></div>
 
