@@ -33,28 +33,29 @@ const Header = props => {
                     {props.isLoggedIn ? (
                         <nav className={`logged-out-mob ${isMenuOpen ? null : 'logged-out-mob-hide'}`}>
                             <div className="Welcome">Welcome, {props.username}</div>
-                            <Link to="/projects" className="navigate">Projects</Link>
+                            <Link to="/projects" className="navigate" onClick={toggleMenu}>Projects</Link>
                             <div id="line"></div>
-                            <Link to="/pricing" className="navigate">Pricing</Link>
+                            <Link to="/pricing" className="navigate" onClick={toggleMenu}>Pricing</Link>
                         </nav>
                     ) : (
                             <nav className={`logged-out-mob ${isMenuOpen ? null : 'logged-out-mob-hide'}`}>
-                                <Link to='/sign-in' className="navigate" >Sign In</Link>
+                                <Link to='/sign-in' className="navigate" onClick={toggleMenu}>Sign In</Link>
                                 <div id="line"></div>
+                                <Link to='/create-account' className="navigate" onClick={toggleMenu}>Create Account</Link>
+                            </nav>
+                        )}
+                    {props.isLoggedIn ? (
+                        <nav className='logged-out'>
+                            <div className="Welcome">Welcome, {props.username}</div>
+                            <Link to="/projects" className="navigate">Projects</Link>
+                            <Link to="/pricing" className="navigate">Pricing</Link>
+                        </nav>
+                    ) : (
+                            <nav className='logged-out'>
+                                <Link to='/sign-in' className="navigate">Sign In</Link>
                                 <Link to='/create-account' className="navigate">Create Account</Link>
                             </nav>
                         )}
-                    <nav className="logged-out">
-                        <div className="navigate">Sign In</div>
-                        <div id="line"></div>
-                        <div className="navigate">Create Account</div>
-                    </nav>
-                    {/* <nav className="logged-in">
-                        <div className="navigate">Sign In</div>
-                        <div id="line"></div>
-                        <div className="navigate">Create Account</div>
-                    </nav> */}
-
                 </header>
             </div>
         </IconContext.Provider >

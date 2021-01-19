@@ -1,4 +1,9 @@
 .orange{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
   width: 288px;
   height: 200px;
   background: #E7ECEF;
@@ -8,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
 
  .text { 
   font-family: Nunito;
@@ -40,4 +45,26 @@
  border-radius: 50%;
  box-shadow: 0px 0px 5px 10px #F96900;
 }
-
+.return{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  height: 70px;
+  width: 70px;
+  background: #F96900;
+  box-shadow: 0px 0px 1px #000000, 0px 0px 1px #000000;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 50px;
+  /* or 281% */
+  text-align: center;
+  letter-spacing: -0.005em;
+  color: #FFFFFF;
+  background-color: #F96900;
+  border: none;
+}

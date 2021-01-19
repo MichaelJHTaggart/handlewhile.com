@@ -1,10 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { BsTrash } from "react-icons/bs";
 import axios from 'axios'
 import '../scss/Projects.scss';
 
 const Projects = (props) => {
-    console.log(props.name)
 
     function deleteTheEvent() {
         axios.delete(`/api/user/timed_events/${props.name.id}`)
@@ -13,24 +13,16 @@ const Projects = (props) => {
             })
     }
 
-
-    function pullUpTimer() {
-        // axios.get(`/api/user/timed_events/${props.name.id}`)
-        //     .then(() => {
-        //         props.
-        // })
-    }
-
     return (
         <div className="orange">
-            <div className="text">
-                {props.name.name}
-            </div>
             <BsTrash className="trash" onClick={deleteTheEvent} />
-            <div className="text">
-                {props.name.time}
-            </div>
-        </div>
+            <Link to={`/projects/${props.name.id}`}>
+                <div className='return'>
+                    <p className='return'>{props.name.name}</p>
+                    <p className='return'>{props.name.time}</p>
+                </div>
+            </Link>
+        </div >
     )
 }
 export default Projects
