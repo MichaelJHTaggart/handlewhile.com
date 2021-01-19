@@ -13,8 +13,6 @@ const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING,
 
 const app = express()
 
-app.use(express.static(`${__dirname}/../build`)) //serving our build folder
-
 app.use(express.json())
 app.use(session({
     resave: false,
@@ -24,6 +22,7 @@ app.use(session({
 })
 )
 
+app.use(express.static(`${__dirname}/../build`)) //serving our build folder
 
 
 
@@ -44,6 +43,9 @@ app.delete('/api/user/timed_events/:timed_events_id', userCtrl.deleteEvent)
 //nodemailer
 app.post('/send', nodeCtrl.autoEmail)
 
+app.get('*', (req, res) => { //Its essentially a catchall. 
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+})
 
 massive({
     connectionString: CONNECTION_STRING,
@@ -53,6 +55,3 @@ massive({
     console.log('db connected')
     app.listen(SERVER_PORT, () => console.log(`Rocking out on port ${SERVER_PORT}`))
 });
-app.get('*', (req, res) => { //Its essentially a catchall. 
-    res.sendFile(path.join(__dirname, '../build/index.html'))
-})
