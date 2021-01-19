@@ -57,14 +57,14 @@ module.exports = {
         //We need an instance of our db
         const db = req.app.get('db')
         //The user needs to have given us a new name
-        const { newName } = req.body
+        const { time, name } = req.body
         //The user will need to be signed in, in order for us to pull their project.
         const { id } = req.session.user
         //The user needs to be referencing an existing project
         const { timed_events_id } = req.params
         //The user will edit a single project to view.
 
-        const edit_timed_event = await db.edit_timed_event(newName, id, timed_events_id)
+        const edit_timed_event = await db.edit_timed_event(time, name, id, timed_events_id)
 
         //return the pulled event
         res.status(200).send(edit_timed_event)

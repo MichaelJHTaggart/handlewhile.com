@@ -16,5 +16,7 @@ export default (
         <Route exact path="/projects" component={ProjectList} />
         <Route exact path="/pricing" component={Pricing} />
         <Route exact path="/forgot-password" component={ForgotPassword} />
+        <Route exact path="/projects/:id" component={Stopwatch} />
+
     </Switch>
 )

@@ -1,4 +1,4 @@
 UPDATE timed_events
-SET name = $1
-WHERE user_id = $2 AND id = $3
+SET time = $1, name = $2
+WHERE user_id = $3 AND id = $4
 RETURNING timed_events

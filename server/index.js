@@ -5,13 +5,15 @@ const session = require('express-session')
 const userCtrl = require('./controllers/userController')
 const authCtrl = require('./controllers/authController')
 const nodeCtrl = require('./controllers/nodemailerController')
-const nodemailer = require('nodemailer');
+const path = require('path')
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING,
     // STRIPE_WEBHOOK_SECRET 
 } = process.env
 // const Stripe = require('stripe');
 
 const app = express()
+
+app.use(express.static(`${__dirname}/../build`)) //serving our build folder
 
 app.use(express.json())
 app.use(session({
@@ -21,6 +23,9 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 }
 })
 )
+
+
+
 
 //authentication
 app.post('/auth/register', authCtrl.register)
@@ -48,3 +53,6 @@ massive({
     console.log('db connected')
     app.listen(SERVER_PORT, () => console.log(`Rocking out on port ${SERVER_PORT}`))
 });
+app.get('*', (req, res) => { //Its essentially a catchall. 
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+})

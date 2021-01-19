@@ -5,8 +5,8 @@ import '../scss/Stopwatch.scss';
 
 
 class Stopwatch extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             timerOn: false,
             timerStart: 0,
@@ -14,6 +14,29 @@ class Stopwatch extends Component {
             name: ""
         };
         this.addTimestamp = this.addTimestamp.bind(this)
+        this.componentDidMount = this.componentDidMount.bind(this)
+        // this.componentDidUpdate = this.componentDidUpdate.bind(this)
+        this.getOneEvent = this.getOneEvent.bind(this)
+    }
+
+    componentDidMount() {
+        if (this.props.match.params.id) { this.getOneEvent() }
+    }
+
+    getOneEvent = () => {
+        const { id } = this.props.match.params
+        axios
+            .get(`/api/user/timed_events/${id}`)
+            .then((res) => {
+                this.setState({
+                    timerTime: res.data[0].time,
+                    name: res.data[0].name
+                })
+                console.log(res.data)
+            })
+            .catch((err) => {
+                this.props.history.push('/404')
+            })
     }
 
     startTimer = () => {
@@ -41,15 +64,23 @@ class Stopwatch extends Component {
         });
     };
     addTimestamp() {
+        const { id } = this.props.match.params
         const body = {
             name: this.state.name,
             time: this.state.timerTime
         }
+        if (this.props.match.params.id) {
+            axios.put(`/api/user/timed_events/${id}`, body)
+                .then((res) => {
+                    return res.data
+                })
+        } else {
 
-        axios.post('/api/user/timed_events', body)
-            .then((res) => {
-                return res.data
-            })
+            axios.post('/api/user/timed_events', body)
+                .then((res) => {
+                    return res.data
+                })
+        }
     }
     handleName(e) {
         this.setState({
@@ -94,7 +125,10 @@ class Stopwatch extends Component {
                     {this.state.timerOn === false && this.state.timerTime > 0 && (
                         <button className="reset-button" onClick={this.resetTimer}>reset</button>
                     )}
-                    <button className="save-button" onClick={this.addTimestamp}>save</button>
+                    {this.state.timerOn === false && this.state.timerTime > 0 && (
+                        <button className="save-button" onClick={this.addTimestamp}>save</button>
+                    )}
+
                 </div>
 
             </div>
