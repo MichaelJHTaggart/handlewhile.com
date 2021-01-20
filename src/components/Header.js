@@ -28,7 +28,7 @@ const Header = props => {
 
                 {props.isLoggedIn ? (
                     <nav className={`logged-out-mob ${isMenuOpen ? null : 'logged-out-mob-hide'}`}>
-                        <div className="Welcome">Welcome! {props.username}</div>
+                        <div className="Welcome">Welcome! </div>
                         <Link to="/projects" className="navigate" onClick={toggleMenu}>Projects</Link>
                         <div id="line"></div>
                         <Link to="/pricing" className="navigate" onClick={toggleMenu}>Pricing</Link>
@@ -42,7 +42,7 @@ const Header = props => {
                     )}
                 {props.isLoggedIn ? (
                     <nav className='logged-out'>
-                        <div className="Welcome">Welcome! {props.username}</div>
+                        <div className="Welcome">Welcome! </div>
                         <Link to="/projects" className="navigate">Projects</Link>
                         <Link to="/pricing" className="navigate">Pricing</Link>
                     </nav>
