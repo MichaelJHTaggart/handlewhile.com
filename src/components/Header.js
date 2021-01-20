@@ -28,7 +28,7 @@ const Header = props => {
 
                     <h1 id="company-name">Handle While</h1>
 
-                    <BsList onClick={toggleMenu} className="Hamburger" />
+                    <BsList onClick={toggleMenu} />
 
                     {props.isLoggedIn ? (
                         <nav className={`logged-out-mob ${isMenuOpen ? null : 'logged-out-mob-hide'}`}>

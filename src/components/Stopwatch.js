@@ -103,7 +103,7 @@ class Stopwatch extends Component {
                             value={this.state.name}
                             onChange={e => this.handleName(e)}
                             type="text"
-                            placeholder="Your Project Name Here!"
+                            placeholder="Project Name Here!"
                             name="name"
                             required>
                         </input>
