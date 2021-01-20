@@ -13,7 +13,7 @@ const ForgotPassword = props => {
     }
 
     return (
-        <div>
+        <div id="body">
             <p className="title">Please enter in your email for a reset your password email!</p>
             <input
                 value={email}

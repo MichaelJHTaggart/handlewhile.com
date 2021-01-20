@@ -98,6 +98,8 @@ class Stopwatch extends Component {
                 <div className="timer-name">
                     <form>
                         <input
+                            id="stopwatch-name"
+                            maxLength="30"
                             value={this.state.name}
                             onChange={e => this.handleName(e)}
                             type="text"

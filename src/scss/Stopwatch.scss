@@ -24,6 +24,25 @@ letter-spacing: -0.07em;
 
 color: #8B8C89;
 }
+#stopwatch-name{
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center;
+    padding: 0;
+    height: 48px;
+    font-weight: 500;
+    background: none;
+    border-radius: 0;
+    color: #646464;
+    transition: all .15s ease;
+}
+        
 .stopwatch-display{
  display:flex;
  justify-content: center;
