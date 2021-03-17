@@ -22,3 +22,7 @@ I did not build the stopwatch myself. I was able to find some instructive materi
 https://medium.com/@peterjd42/building-timers-in-react-stopwatch-and-countdown-bc06486560a2
 
 I saved the stopwatch on the front end, only saving the data that was changed at the end. 
+
+
+## Wireframing and Planning
+https://www.figma.com/files/project/19739921/First-Project
