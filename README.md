@@ -3,6 +3,8 @@
 ## Why did I build this?
 I care about others deeply, and my greatest aspirations is to create tools that will help people taste the fulness of their life. I want people to be feel completed, fulfilled, and accomplished. I know that people can find this in all sorts of places. However, it seems that everyone has trouble knowing just exactly how much time they spend doing things. How much time do you spend with your family? How much time do you spend at your job? 
 
+## Information on the Project
+
 This is my first ever website that I have ever built. It functions as a timer that saves the amount of time that you have spent doing a specific activity.
 
 This project was planned, and built from December 30, 2020 - January 19, 2021
