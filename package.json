@@ -24,7 +24,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "redux": "^4.0.5",
-    "sass": "^1.32.4",
+    "sass": "^1.68.0",
     "stripe": "^8.131.1",
     "web-vitals": "^0.2.4"
   },
